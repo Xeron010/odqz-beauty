@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ODQZ Beauty - Premium skincare and cosmetics for every skin tone">
+    <title>ODQZ Beauty - Premium Beauty & Skincare</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fefdfb;
+        }
+        
+        header {
+            background: white;
+            padding: 20px 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        nav .logo {
+            font-size: 26px;
+            font-weight: 700;
+            color: #d4a574;
+            letter-spacing: 1px;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 40px;
+        }
+        
+        nav a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: #d4a574;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, #f9e5d3 0%, #f0e4d1 100%);
+            padding: 100px 20px;
+        }
+        
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .hero-text h1 {
+            font-size: 52px;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: #333;
+            font-weight: 700;
+        }
+        
+        .hero-text p {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 14px 40px;
+            background: #d4a574;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .btn:hover {
+            background: #c49160;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(212,165,116,0.3);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #d4a574;
+            color: #d4a574;
+        }
+        
+        .btn-outline:hover {
+            background: #d4a574;
+            color: white;
+        }
+        
+        .hero-visual {
+            background: linear-gradient(135deg, #d4a574 0%, #c49160 100%);
+            border-radius: 20px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 150px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        section {
+            padding: 80px 20px;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 42px;
+            margin-bottom: 50px;
+            color: #333;
+            font-weight: 700;
+        }
+        
+        .featured-section {
+            background: white;
+        }
+        
+        .featured-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .featured-image {
+            background: linear-gradient(135deg, #d4a574 0%, #c49160 100%);
+            border-radius: 20px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 100px;
+        }
+        
+        .featured-content h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .featured-content p {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+        
+        .features-section {
+            background: #fefdfb;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+        
+        .feature-card {
+            text-align: center;
+            padding: 30px;
+        }
+        
+        .feature-icon {
+            font-size: 60px;
+            margin-bottom: 15px;
+        }
+        
+        .feature-card h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: #333;
+        }
+        
+        .feature-card p {
+            color: #666;
+            font-size: 15px;
+        }
+        
+        .products-section {
+            background: white;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .product-card {
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #f0e8df;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .product-image {
+            background: linear-gradient(135deg, #d4a574 0%, #c49160 100%);
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+        }
+        
+        .product-info {
+            padding: 25px;
+        }
+        
+        .product-category {
+            color: #d4a574;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+        
+        .product-info h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+            color: #333;
+        }
+        
+        .product-desc {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .product-rating {
+            color: #ffc107;
+            font-size: 13px;
+            margin-bottom: 12px;
+        }
+        
+        .product-price {
+            font-size: 20px;
+            font-weight: 700;
+            color: #d4a574;
+        }
+        
+        .testimonials-section {
+            background: linear-gradient(135deg, #f9e5d3 0%, #f0e4d1 100%);
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            border-left: 4px solid #d4a574;
+        }
+        
+        .testimonial .rating {
+            color: #ffc107;
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+        
+        .testimonial p {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .newsletter-section {
+            background: #333;
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+        
+        .newsletter-section h2 {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+        
+        .newsletter-section p {
+            font-size: 16px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            gap: 10px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .newsletter-form input {
+            flex: 1;
+            padding: 14px 20px;
+            border: none;
+            border-radius: 50px;
+            font-size: 14px;
+        }
+        
+        .newsletter-form button {
+            padding: 14px 30px;
+            background: #d4a574;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .newsletter-form button:hover {
+            background: #c49160;
+        }
+        
+        footer {
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+        
+        .footer-links {
+            margin: 15px 0;
+        }
+        
+        .footer-links a {
+            color: #999;
+            text-decoration: none;
+            margin: 0 15px;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #d4a574;
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .hero-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-text h1 {
+                font-size: 36px;
+            }
+            
+            .featured-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">✨ ODQZ BEAUTY</div>
+            <ul>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Radiate Your Natural Beauty</h1>
+                <p>Premium skincare and cosmetics crafted for every skin tone. Discover products that celebrate and enhance your unique beauty.</p>
+                <a href="#products" class="btn">Shop Now</a>
+                <a href="#" class="btn btn-outline">Learn More</a>
+            </div>
+            <div class="hero-visual">💄</div>
+        </div>
+    </section>
+
+    <section class="featured-section" id="about">
+        <div class="container">
+            <div class="featured-grid">
+                <div class="featured-image">🌸</div>
+                <div class="featured-content">
+                    <h2>Our Story</h2>
+                    <p>At ODQZ Beauty, we believe that beauty comes in every shade and form. Our mission is to create high-quality, inclusive skincare and cosmetics that celebrate the natural beauty of every individual.</p>
+                    <p>Each product is carefully formulated with premium ingredients, dermatologically tested, and cruelty-free. We're committed to sustainability and ethical practices in everything we do.</p>
+                    <a href="#products" class="btn">Explore Collection</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features-section">
+        <div class="container">
+            <h2 class="section-title">Why ODQZ Beauty?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🌿</div>
+                    <h3>Natural Ingredients</h3>
+                    <p>Formulated with botanical extracts and clean, natural ingredients for healthy skin.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">✨</div>
+                    <h3>Cruelty-Free</h3>
+                    <p>100% cruelty-free and never tested on animals. Vegan options available.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔬</div>
+                    <h3>Dermatologist Tested</h3>
+                    <p>Tested and approved by dermatologists for safety and effectiveness.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌍</div>
+                    <h3>Sustainable</h3>
+                    <p>Eco-friendly packaging and sustainable sourcing practices.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">👥</div>
+                    <h3>Inclusive Range</h3>
+                    <p>Products designed for all skin types, tones, and needs.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💖</div>
+                    <h3>Self-Care Focus</h3>
+                    <p>Luxurious products that make skincare a ritual of self-love.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="products-section" id="products">
+        <div class="container">
+            <h2 class="section-title">Featured Products</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">🧴</div>
+                    <div class="product-info">
+                        <div class="product-category">Skincare</div>
+                        <h3>Radiance Serum</h3>
+                        <p class="product-desc">Vitamin C serum for brightening and antioxidant protection</p>
+                        <div class="product-rating">⭐⭐⭐⭐⭐ (428)</div>
+                        <div class="product-price">$48</div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">💅</div>
+                    <div class="product-info">
+                        <div class="product-category">Cosmetics</div>
+                        <h3>Velvet Lipstick</h3>
+                        <p class="product-desc">Long-wearing matte lipstick in 24 beautiful shades</p>
+                        <div class="product-rating">⭐⭐⭐⭐⭐ (612)</div>
+                        <div class="product-price">$32</div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">🎨</div>
+                    <div class="product-info">
+                        <div class="product-category">Makeup</div>
+                        <h3>Luminous Foundation</h3>
+                        <p class="product-desc">Hydrating foundation with luminous finish</p>
+                        <div class="product-rating">⭐⭐⭐⭐⭐ (751)</div>
+                        <div class="product-price">$42</div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">🧪</div>
+                    <div class="product-info">
+                        <div class="product-category">Skincare</div>
+                        <h3>Deep Hydration Mask</h3>
+                        <p class="product-desc">Intensive hydrating face mask for all skin types</p>
+                        <div class="product-rating">⭐⭐⭐⭐⭐ (389)</div>
+                        <div class="product-price">$35</div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">👁️</div>
+                    <div class="product-info">
+                        <div class="product-category">Eyes</div>
+                        <h3>Golden Hour Palette</h3>
+                        <p class="product-desc">12-shade eyeshadow palette with warm tones</p>
+                        <div class="product-rating">⭐⭐⭐⭐⭐ (834)</div>
+                        <div class="product-price">$52</div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">💆</div>
+                    <div class="product-info">
+                        <div class="product-category">Treatment</div>
+                        <h3>Night Recovery Oil</h3>
+                        <p class="product-desc">Rejuvenating facial oil for overnight renewal</p>
+                        <div class="product-rating">⭐⭐⭐⭐⭐ (502)</div>
+                        <div class="product-price">$58</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title">What Our Customers Love</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial">
+                    <div class="rating">⭐⭐⭐⭐⭐</div>
+                    <p>"ODQZ Beauty products transformed my skin. The quality is exceptional and the results are visible within weeks. Highly recommend!"</p>
+                    <div class="testimonial-author">— Maya Patel</div>
+                </div>
+
+                <div class="testimonial">
+                    <div class="rating">⭐⭐⭐⭐⭐</div>
+                    <p>"Finally found products that work for my sensitive skin. The ingredients are clean and the products are so effective. I'm a customer for life!"</p>
+                    <div class="testimonial-author">— Jessica Martinez</div>
+                </div>
+
+                <div class="testimonial">
+                    <div class="rating">⭐⭐⭐⭐⭐</div>
+                    <p>"The inclusivity of ODQZ Beauty is refreshing. Their range covers all skin tones and the quality is consistently excellent. Worth every penny!"</p>
+                    <div class="testimonial-author">— Amara Johnson</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="newsletter-section">
+        <div class="container">
+            <h2>Join Our Beauty Community</h2>
+            <p>Get exclusive offers, beauty tips, and early access to new products</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 ODQZ Beauty. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="#" id="contact">Contact</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Shipping Info</a>
+        </div>
+    </footer>
+</body>
+</html>
